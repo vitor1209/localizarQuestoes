@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado da Avaliação</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 40px 0; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh; 
+      box-sizing: border-box;
+    }
+    .container {
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .resultado {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .botao-voltar {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .botao-voltar:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Resultado da Avaliação</h2>
+    <div class="resultado" >
+        {% for imagem in imagens %}
+            {% set num = resultado['numero_questao'].index[loop.index0] %}
+            <p>{{resultado['numero_questao'][num]}}</p>
+                <img src="{{imagem}}" style="width: 50%; margin-bottom: 20px;">
+                <br>
+            {{"-" * 50}}
+                <br>
+        {% endfor %}
+    </div>
+    <a href="/" class="botao-voltar">Voltar</a>
+  </div>
+</body>
+</html>
