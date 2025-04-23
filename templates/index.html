@@ -5,88 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Busca de Questões</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .botao-voltar {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #4caf50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .botao-voltar:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans">
   <div class="min-h-screen flex flex-col items-center justify-center px-4">
     <div class="w-full max-w-2xl bg-white shadow-xl rounded-2xl p-6">
       <h1 class="text-2xl font-bold text-gray-800 mb-6 text-center">Buscar Questões</h1>
       
-      <form method="POST" action="/pesquisar" class="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-4">
+      <form method="POST" action="/pesquisar" class="flex flex-col gap-y-2 md:flex-row md:items-center md:gap-4 flex-wrap">
         
         <!-- Select de matéria -->
-        <div class="flex-1">
+        <div class="flex-1 min-w-[200px]">
           <select name="materia" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
             <option value="">Selecione uma matéria...</option>
-            <option value="Gênero e tipologia textual">Gênero e tipologia textual</option>
-            <option value="Acentuação">Acentuação</option>
-            <option value="Tempos e modos verbais">Tempos e modos verbais</option>
-            <option value="Discurso direto e indireto">Discurso direto e indireto</option>
-            <option value="Figuras de linguagem">Figuras de linguagem</option>
-            <option value="Regras de pontuação">Regras de pontuação</option>
-            <option value="Leitura">Leitura</option>
-            <option value="Interpretação de texto">Interpretação de texto</option>
-            <option value="Expressões numéricas">Expressões numéricas</option>
-            <option value="Frações">Frações</option>
-            <option value="Sistemas de medida">Sistemas de medida</option>
-            <option value="Regra de três">Regra de três</option>
-            <option value="Porcentagem">Porcentagem</option>
-            <option value="Equações do primeiro grau">Equações do primeiro grau</option>
-            <option value="Plano cartesiano">Plano cartesiano</option>
-            <option value="Gráficos e tabelas">Gráficos e tabelas</option>
-            <option value="Área e perímetro">Área e perímetro</option>
-            <option value="Volumes">Volumes</option>
-            <option value="Função">Função</option>
-            <option value="Média">Média</option>
-            <option value="Estrutura atômica">Estrutura atômica</option>
-            <option value="Substâncias e misturas">Substâncias e misturas</option>
-            <option value="Elementos">Elementos</option>
-            <option value="Tabela periódica">Tabela periódica</option>
-            <option value="Reações químicas">Reações químicas</option>
-            <option value="Estados da matéria">Estados da matéria</option>
-            <option value="Fórmulas químicas">Fórmulas químicas</option>
-            <option value="Conceito">Conceito</option>
-            <option value="Separação de misturas">Separação de misturas</option>
-            <option value="Características básicas dos seres vivos">Características básicas dos seres vivos</option>
-            <option value="Patologias">Patologias</option>
-            <option value="Reprodução humana">Reprodução humana</option>
-            <option value="Vida animal">Vida animal</option>
-            <option value="Meio ambiente">Meio ambiente</option>
-            <option value="Reinos">Reinos</option>
-            <option value="Cadeia alimentar">Cadeia alimentar</option>
-            <option value="Doenças">Doenças</option>
-            <option value="Primeiras civilizações">Primeiras civilizações</option>
-            <option value="Grécia antiga">Grécia antiga</option>
-            <option value="Roma antiga">Roma antiga</option>
-            <option value="Feudalismo">Feudalismo</option>
-            <option value="As sociedades maia">As sociedades maia</option>
-            <option value="asteca e inca">asteca e inca</option>
-            <option value="Momentos históricos nacionais">Momentos históricos nacionais</option>
-            <option value="Revoltas brasileiras">Revoltas brasileiras</option>
-            <option value="Era Vargas">Era Vargas</option>
-            <option value="Guerras">Guerras</option>
-            <option value="Descobertas">Descobertas</option>
-            <option value="Sociedades indígenas no Brasil">Sociedades indígenas no Brasil</option>
-            <option value="Velocidade média">Velocidade média</option>
-            <option value="Energia">Energia</option>
-            <option value="Potência">Potência</option>
-            <option value="Calorimetria">Calorimetria</option>
-            <option value="Leis de Newton">Leis de Newton</option>
-            <option value="Movimento uniforme">Movimento uniforme</option>
-            <option value="Cartografia">Cartografia</option>
-            <option value="Recursos minerais">Recursos minerais</option>
-            <option value="Relevo">Relevo</option>
-            <option value="Clima">Clima</option>
-            <option value="Atividades econômicas">Atividades econômicas</option>
-            <option value="Biomas">Biomas</option>
-            <option value="Migração">Migração</option>
-            <option value="Matriz energética">Matriz energética</option>
-            <option value="Globalização">Globalização</option>
-            <option value="Países (foco na América Latina)">Países (foco na América Latina)</option>
+
+            <optgroup label="Português">
+              <option value="Gênero e tipologia textual">Gênero e tipologia textual</option>
+              <option value="Acentuação">Acentuação</option>
+              <option value="Tempos e modos verbais">Tempos e modos verbais</option>
+              <option value="Discurso direto e indireto">Discurso direto e indireto</option>
+              <option value="Figuras de linguagem">Figuras de linguagem</option>
+              <option value="Regras de pontuação">Regras de pontuação</option>
+              <option value="Leitura">Leitura</option>
+              <option value="Interpretação de texto">Interpretação de texto</option>
+            </optgroup>
+
+            <optgroup label="Matemática">
+              <option value="Expressões numéricas">Expressões numéricas</option>
+              <option value="Frações">Frações</option>
+              <option value="Sistemas de medida">Sistemas de medida</option>
+              <option value="Regra de três">Regra de três</option>
+              <option value="Porcentagem">Porcentagem</option>
+              <option value="Equações do primeiro grau">Equações do primeiro grau</option>
+              <option value="Plano cartesiano">Plano cartesiano</option>
+              <option value="Gráficos e tabelas">Gráficos e tabelas</option>
+              <option value="Área e perímetro">Área e perímetro</option>
+              <option value="Volumes">Volumes</option>
+              <option value="Função">Função</option>
+              <option value="Média">Média</option>
+            </optgroup>
+
+            <optgroup label="Química">
+              <option value="Estrutura atômica">Estrutura atômica</option>
+              <option value="Substâncias e misturas">Substâncias e misturas</option>
+              <option value="Elementos">Elementos</option>
+              <option value="Tabela periódica">Tabela periódica</option>
+              <option value="Reações químicas">Reações químicas</option>
+              <option value="Estados da matéria">Estados da matéria</option>
+              <option value="Fórmulas químicas">Fórmulas químicas</option>
+              <option value="Conceito">Conceito</option>
+              <option value="Separação de misturas">Separação de misturas</option>
+            </optgroup>
+
+            <optgroup label="Biologia">
+              <option value="Características básicas dos seres vivos">Características básicas dos seres vivos</option>
+              <option value="Patologias">Patologias</option>
+              <option value="Reprodução humana">Reprodução humana</option>
+              <option value="Vida animal">Vida animal</option>
+              <option value="Meio ambiente">Meio ambiente</option>
+              <option value="Reinos">Reinos</option>
+              <option value="Cadeia alimentar">Cadeia alimentar</option>
+              <option value="Doenças">Doenças</option>
+            </optgroup>
+
+            <optgroup label="História">
+              <option value="Primeiras civilizações">Primeiras civilizações</option>
+              <option value="Grécia antiga">Grécia antiga</option>
+              <option value="Roma antiga">Roma antiga</option>
+              <option value="Feudalismo">Feudalismo</option>
+              <option value="As sociedades maia, asteca e inca">As sociedades maia, asteca e inca</option>
+              <option value="Momentos históricos nacionais">Momentos históricos nacionais</option>
+              <option value="Revoltas brasileiras">Revoltas brasileiras</option>
+              <option value="Era Vargas">Era Vargas</option>
+              <option value="Guerras">Guerras</option>
+              <option value="Descobertas">Descobertas</option>
+              <option value="Sociedades indígenas no Brasil">Sociedades indígenas no Brasil</option>
+            </optgroup>
+
+            <optgroup label="Física">
+              <option value="Velocidade média">Velocidade média</option>
+              <option value="Energia">Energia</option>
+              <option value="Potência">Potência</option>
+              <option value="Calorimetria">Calorimetria</option>
+              <option value="Leis de Newton">Leis de Newton</option>
+              <option value="Movimento uniforme">Movimento uniforme</option>
+            </optgroup>
+
+            <optgroup label="Geografia">
+              <option value="Cartografia">Cartografia</option>
+              <option value="Recursos minerais">Recursos minerais</option>
+              <option value="Relevo">Relevo</option>
+              <option value="Clima">Clima</option>
+              <option value="Atividades econômicas">Atividades econômicas</option>
+              <option value="Biomas">Biomas</option>
+              <option value="Migração">Migração</option>
+              <option value="Matriz energética">Matriz energética</option>
+              <option value="Globalização">Globalização</option>
+              <option value="Países (foco na América Latina)">Países (foco na América Latina)</option>
+            </optgroup>
           </select>
         </div>
 
-        <!-- Input de busca -->
-        <div class="flex-1">
+        <!-- Select de ano -->
+        <div class="flex-1 min-w-[150px]">
+          <select name="ano" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+            <option value="">Selecione o ano...</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+
+        <!-- Campo de busca -->
+        <div class="flex-1 min-w-[200px]">
           <input type="text" name="query" placeholder="Digite uma palavra-chave..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
         </div>
 
@@ -95,8 +148,13 @@
           <input type="submit" value="Pesquisar" class="w-full md:w-auto bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition" />
         </div>
       </form>
+
+      <p class="mt-6 text-center">
+        <a href="/provas" class="text-green-600 hover:underline">Baixar PDF</a>
+      </p>
     </div>
   </div>
 </body>
+
 
 </html>

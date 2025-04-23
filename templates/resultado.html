@@ -59,7 +59,7 @@
     <div class="resultado" >
         {% for imagem in imagens %}
             {% set num = resultado['numero_questao'].index[loop.index0] %}
-            <p>{{resultado['numero_questao'][num]}}</p>
+            <p>Semestre: {{resultado['semestre'][num]}} Ano: {{resultado['ano'][num]}} {{resultado['numero_questao'][num]}}</p>
                 <img src="{{imagem}}" style="width: 50%; margin-bottom: 20px;">
                 <br>
             {{"-" * 50}}
@@ -67,6 +67,7 @@
         {% endfor %}
     </div>
     <a href="/" class="botao-voltar">Voltar</a>
+    <a href="/provas" class="botao-voltar">Baixar pdf</a>
   </div>
 </body>
 </html>
